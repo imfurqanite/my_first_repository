@@ -1,0 +1,297 @@
+<!DOCTYPE html>  
+<html>  
+
+<head>  
+  
+  <style>  
+
+  body
+  {  
+    font-family: Calibri, Helvetica, sans-serif;  
+    background-color: black;
+    
+  }  
+
+
+  .container 
+  {  
+    padding: 50px;  
+    background-color: lightblue;
+    background-image: url('bg2.jpg');  
+    height: 100%;
+  } 
+
+
+  
+  input[type=text], input[type=password],input[type=number], textarea 
+  {  
+    width: 100%;  
+    padding: 15px;  
+    margin: 5px 0 22px 0;  
+    display: inline-block;  
+    border: none;  
+    background: #f1f1f1;  
+  }  
+
+
+  input[type=text]:focus, input[type=password]:focus, input[type=number]:focus, input[type=date]:focus
+  {  
+    background-color: orange;  
+    outline: none;  
+  }  
+  
+  input[type=date];
+  {
+    width: 100%;
+  }
+
+  div
+  {  
+    padding: 10px 0;  
+  }
+
+
+  hr 
+  {  
+    border: 1px solid #f1f1f1;  
+    margin-bottom: 25px;  
+  }
+
+  input[type=file]
+  {
+  padding:10px;
+  background: #f1f1f1;
+  }
+
+
+  .registerbtn 
+  {  
+    background-color: #4CAF50;  
+    color: white;  
+    padding: 16px 20px;  
+    margin: 8px 0;  
+    border: none;  
+    cursor: pointer;  
+    width: 100%;  
+    opacity: 0.9;  
+  }  
+
+
+  .registerbtn:hover 
+  {  
+    background-color:red ;
+    opacity: 5; 
+
+  }
+
+  .txtarea
+  {
+    width: 100%;  
+    padding: 15px;  
+    margin: 5px 0 22px 0;  
+    display: inline-block;  
+    border: none;  
+    background: #f1f1f1;
+  }
+
+  .txtarea:focus
+  {
+    background-color: orange;  
+    outline: none; 
+  }
+
+ 
+
+</style> 
+
+
+<script>
+  function validate()
+      {
+        var name = document.getElementById('name').value;
+        var num = document.getElementById('num').value;
+        var add = document.getElementById('add').value;
+        var what = document.getElementById('Subject');
+        var options = document.getElementsByName("options[]");
+       
+
+        if(name.trim()==""||name==null)
+        {
+          alert('Name Field is Empty!');
+          return false;
+        }
+
+        
+        else if(num==""||num==null)
+        {
+          alert('Phone Number: Field is Empty!');
+          return false;
+        }
+
+
+         else if(num.length<10)
+        {
+          alert('Phone Number: Invalid Phone Number entered. Enter 10 digit number.');
+          return false;
+        } 
+
+
+
+        else if (what.selectedIndex < 1)                  
+        { 
+          alert("Please enter your speciliazation."); 
+          return false; 
+        } 
+
+
+        else if(options[0].checked==false && options[1].checked==false && options[2].checked==false && options[3].checked==false && options[4].checked==false) 
+        {
+          alert('Please check at least one of the options.');
+          return false;
+        }
+
+        alert("successfully registered");
+        return true;
+      }
+  
+</script>
+
+</head>  
+
+
+<body>
+
+
+  <form onsubmit="return validate();">  
+      <div class="container">  
+      <center>  <h1> STUDENT REGISTRATION FORM</h1> </center> 
+      <center>  <h2> PRESIDENCY JOB FAIR</h2> </center>  
+
+
+      <hr>  
+      <h2>PERSONAL DETAILS</h2>
+
+
+      <label> <b>Firstname:</b> </label>   
+      <input type="text" name="firstname" id="name"placeholder= "Firstname" size="15"  />      
+      
+      <label>   
+      <b>Phone :</b>  
+      </label>  
+      <input type="text" name="country code" placeholder="Country Code"  value="+91" size="2"/>   
+      <input type="text" id="num" name="phone" placeholder="Phone No." size="10"/ >  
+ 
+      <div>  
+      <label>   
+      <b>Gender :</b>  
+      </label><br>  
+      <input type="radio" value="Male" name="gender" checked > Male   
+      <input type="radio" value="Female" name="gender"> Female   
+      <input type="radio" value="Other" name="gender"> Other 
+      </div>  
+   
+      <b>Current Address :</b> 
+      <input type ="text" id="add" cols="80" rows="5" placeholder="Current Address"  />  
+       
+ 
+      <label for="email"><b>Email</b></label>  
+      <input type="text" placeholder="Enter Email" name="email" >  
+      
+      <hr>
+
+      <h2>SPECIALISATION</h2>
+
+      
+      <label>   
+      <b>Course :</b>  
+      <select class="txtarea" name="Specialization" name="Subject" id="Subject">
+      
+      <option disabled selected value> -- Select an option -- </option>
+      <option value="CSE">CSE</option>
+      <option value="IT">IT</option>
+      <option value="EEE">EEE</option>
+      <option value="MECH">MECH</option>
+      <option value="Civil">civil</option>
+
+      </select><br>  
+      
+      
+
+
+      <hr>
+
+
+      <h2>YOP AND DOB</h2>
+      <label>
+      <b>YOP:</b>
+      </label><br>
+      
+      <input type="date" class="txtarea" min="2020-01-01" max="2022-12-31"> *Year Of Passing 2020-2022 is only permitted!
+      <br><br>
+ 
+      <label>
+      <b>DOB:</b>
+      </label><br>
+      <input type="date" class="txtarea" min="1990-01-01" max="2022-12-31"> 
+
+      <hr>
+
+      <h2>UPLOAD</h2>
+
+      <label for="img"><b>Upload Photo:</b></label>
+      <br>
+      <input type="file" id="img" name="img" accept="image/*">
+      <br><br>
+
+      <label for="img"><b>Upload Signature:</b></label>
+      <br>
+      <input type="file" id="img" name="img" accept="image/*">
+      <br><br>
+          
+      <label for="img"><b>Upload Resume:</b></label>
+      <br>
+      <input type="file" id="img" name="img" accept="image/*">
+      <br><br>
+
+      <hr>
+
+      <h2>TECHNICAL SKILLS<h2>
+      
+
+      <h4> SELECT YOUR TECHINCAL SKILL(S):</h4>
+      
+      <input type="checkbox" name="options[]" id="cb" value="Option 1" /> C++<br/>
+      <input type="checkbox" name="options[]" id="cb" value="Option 2" /> JAVA<br/>
+      <input type="checkbox" name="options[]" id="cb" value="Option 3" /> PYTHON<br>
+      <input type="checkbox" name="options[]" id="cb" value="Option 4" /> DBMS<br>
+      <input type="checkbox" name="options[]" id="cb" value="Option 5" /> AI<br>
+
+      <hr>
+
+      <h1>MARKS SECTION</h1>
+
+      <label><b>10th Result:</b></label>
+      <input type="number" id="marks" name="marks"  placeholder="IN PERCENTAGE(%)" pattern="[1-99]{2}.[1-9]{2}" >
+      <br>
+
+      <label><b>12th Result:</b></label>
+      <input type="number" id="marks" name="marks"   placeholder="IN PERCENTAGE(%)" pattern="[1-99]{2}.[1-9]{2}">
+      <br>
+
+      <label><b>B.Tech Result:</b></label>
+      <input type="text" id="mark" name="mark" placeholder="IN CPGA GRADES(A/B/C)"
+      pattern="[A-Ca-c]{1}" title="only enter grades from A to C"><br><br>
+
+
+       <button type="submit" class="registerbtn">Register</button>
+       <button type="reset" value="reset" class="registerbtn">Reset</button>    
+
+    </form>  
+    <br>
+    <br>
+    <center><h4><b>&copy MOHAMMED FURQAN JEELANI 20171CSE0811<b></h4></center>
+    <center><h7><b>2019-2020 6-CSE-12 IT LAB</b></h7></center>
+    <center><h7><b>DEPT OF CSE SOE PU<b></h7></b></center>
+  </body>  
+
+</html>  
